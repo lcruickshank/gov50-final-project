@@ -7,6 +7,13 @@ output:
     self_contained: false
 ---
 
+```{r}
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(arsenal)
+```
 
 
 ## Project thoughts
@@ -16,3 +23,130 @@ I am interested in exploring data related to college admission statistics in cor
 
 
 My research question is " Does the Race Diversity of Public-Four-Year Colleges match the Race Diversity of their state? It is my hypothesis that very little of the states will actually match the diversity between college students and state population. There are several reasons that I think this may be, the main one being access to having quality education that leads to proper college preparation. In states that have a more diverse state population, I expect to see a more diverse college population and the contrary with states that have less diverse population. The comparison of whether a state is diverse or not diverse will be by comparing their racial population during the time period to the racial population of the United States as a whole. My dataset is comprised of the state and the percentage of each race group during the year 2018-2019. The difference in percentages between state and college will be found and those will be compared among the states. What will be measured is how large the difference is between states. If I observe greater rates of differences between the data it will support my thesis but if I do not my thesis will be incorrect.
+
+```{r}
+library(readr)
+underpop <- read_csv("underpop - Copy.csv")
+View(underpop)
+```
+
+```{r}
+library(readr)
+stateperc <- read_csv("stateperc.csv")
+View(stateperc)
+```
+
+```{r}
+colnames(underpop)[1] = "state"
+
+colnames(stateperc)[2] = "Hispanic"
+
+colnames(stateperc)[3] = "White"
+
+colnames(stateperc)[4] = "Black"
+
+colnames(stateperc)[5] = "Asian"
+
+colnames(stateperc)[6] = "American Indian"
+
+```
+
+
+
+```{r}
+summary(comparedf(underpop, stateperc))
+```
+
+
+
+```{r}
+
+plot1 <- stateperc|>
+  slice_max(Black, n = 5)|>
+  ggplot(mapping = aes(x = state, y = Black))+
+ geom_col()+
+  labs( x = "State", y = "Percentage of Black Pop", title = "States with Highest % of Black People")
+
+plot1
+```
+
+```{r}
+plot2 <- stateperc|>
+  slice_max(Hispanic, n = 5)|>
+  ggplot(mapping = aes(x = state, y = Hispanic))+
+ geom_col()
+
+plot2
+```
+```{r}
+plot3 <- stateperc|>
+  slice_max(Asian, n = 5)|>
+  ggplot(mapping = aes(x = state, y = Asian))+
+ geom_col()
+
+plot3
+```
+
+```{r}
+plot4 <- stateperc|>
+  slice_max(White, n = 5)|>
+  ggplot(mapping = aes(x = state, y = White))+
+ geom_col()
+
+plot4
+```
+
+```{r}
+plot5 <- stateperc|>
+  slice_max(`American Indian`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `American Indian`))+
+ geom_col()
+
+plot5
+```
+
+
+```{r}
+plot1b <- underpop|>
+  slice_max(`American Indian or Alaskan Native undergraduates - Fall (%)`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `American Indian or Alaskan Native undergraduates - Fall (%)` ))+
+ geom_col()
+
+plot1b
+```
+```{r}
+plot2b <- underpop|>
+  slice_max( `Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)` ))+
+ geom_col()
+
+plot2b
+```
+
+```{r}
+plot3b <- underpop|>
+  slice_max( `Black, non-Hispanic undergraduates - Fall (%)`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `Black, non-Hispanic undergraduates - Fall (%)` ))+
+ geom_col()
+
+plot3b
+```
+```{r}
+plot4b <- underpop|>
+  slice_max(`Hispanic undergraduates - Fall (%)`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `Hispanic undergraduates - Fall (%)` ))+
+ geom_col()
+
+plot4b
+```
+
+```{r}
+plot5b <- underpop|>
+  slice_max(`White, non-Hispanic undergraduates - Fall (%)`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `White, non-Hispanic undergraduates - Fall (%)` ))+
+ geom_col()
+
+plot5b
+```
+
+

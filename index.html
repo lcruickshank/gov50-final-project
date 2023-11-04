@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-10-1.png","index_files/figure-html5/unnamed-chunk-11-1.png","index_files/figure-html5/unnamed-chunk-12-1.png","index_files/figure-html5/unnamed-chunk-13-1.png","index_files/figure-html5/unnamed-chunk-14-1.png","index_files/figure-html5/unnamed-chunk-15-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/figure-html5/unnamed-chunk-9-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","stateperc - Sheet1 (1).csv","stateperc.csv","undergradpop.csv","underpop - Copy.csv","underpop.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1517,10 +1517,264 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mayoverse/arsenal'>arsenal</a></span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
 <h2 id="project-thoughts">Project thoughts</h2>
 <p>I am interested in exploring data related to college admission statistics in correlation with race. I would like to focus on undergraduate colleges. I would like to potentially compare college in America from different regions.</p>
 <p>My research question is ” Does the Race Diversity of Public-Four-Year Colleges match the Race Diversity of their state? It is my hypothesis that very little of the states will actually match the diversity between college students and state population. There are several reasons that I think this may be, the main one being access to having quality education that leads to proper college preparation. In states that have a more diverse state population, I expect to see a more diverse college population and the contrary with states that have less diverse population. The comparison of whether a state is diverse or not diverse will be by comparing their racial population during the time period to the racial population of the United States as a whole. My dataset is comprised of the state and the percentage of each race group during the year 2018-2019. The difference in percentages between state and college will be found and those will be compared among the states. What will be measured is how large the difference is between states. If I observe greater rates of differences between the data it will support my thesis but if I do not my thesis will be incorrect.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
+<span><span class='va'>underpop</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"underpop - Copy.csv"</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
+<span><span class='va'>stateperc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"stateperc.csv"</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>stateperc</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"state"</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>stateperc</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>stateperc</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"White"</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>stateperc</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>4</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"Black"</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>stateperc</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>5</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"Asian"</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>stateperc</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>6</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"American Indian"</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://mayoverse.github.io/arsenal/reference/comparedf.html'>comparedf</a></span><span class='op'>(</span><span class='va'>underpop</span>, <span class='va'>stateperc</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+
+Table: (\#tab:unnamed-chunk-5)Summary of data.frames
+
+version   arg          ncol   nrow
+--------  ----------  -----  -----
+x         underpop       10     50
+y         stateperc       6     51
+
+
+
+Table: (\#tab:unnamed-chunk-5)Summary of overall comparison
+
+statistic                                                      value
+------------------------------------------------------------  ------
+Number of by-variables                                             0
+Number of non-by variables in common                               1
+Number of variables compared                                       1
+Number of variables in x but not y                                 9
+Number of variables in y but not x                                 5
+Number of variables compared with some values unequal              1
+Number of variables compared with all values equal                 0
+Number of observations in common                                  50
+Number of observations in x but not y                              0
+Number of observations in y but not x                              1
+Number of observations with some compared variables unequal       50
+Number of observations with all compared variables equal           0
+Number of values unequal                                          50
+
+
+
+Table: (\#tab:unnamed-chunk-5)Variables not shared
+
+version   variable                                                                 position  class     
+--------  ----------------------------------------------------------------------  ---------  ----------
+x         Year                                                                            2  character 
+x         American Indian or Alaskan Native undergraduates - Fall (%)                     3  numeric   
+x         Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)           4  numeric   
+x         Black, non-Hispanic undergraduates - Fall (%)                                   5  numeric   
+x         Hispanic undergraduates - Fall (%)                                              6  numeric   
+x         Foreign/ international undergraduates - Fall (%)                                7  numeric   
+x         Multiracial undergraduates - Fall (%)                                           8  numeric   
+x         Race unknown undergraduates - Fall (%)                                          9  numeric   
+x         White, non-Hispanic undergraduates - Fall (%)                                  10  numeric   
+y         Hispanic                                                                        2  character 
+y         White                                                                           3  character 
+y         Black                                                                           4  character 
+y         Asian                                                                           5  character 
+y         American Indian                                                                 6  character 
+
+
+
+Table: (\#tab:unnamed-chunk-5)Other variables not compared
+
+                                 
+ --------------------------------
+ No other variables not compared 
+ --------------------------------
+
+
+
+Table: (\#tab:unnamed-chunk-5)Observations not shared
+
+version    ..row.names..   observation
+--------  --------------  ------------
+y                     51            51
+
+
+
+Table: (\#tab:unnamed-chunk-5)Differences detected by variable
+
+var.x   var.y     n   NAs
+------  ------  ---  ----
+state   state    50     0
+
+
+
+Table: (\#tab:unnamed-chunk-5)Differences detected (40 not shown)
+
+var.x   var.y    ..row.names..  values.x                                values.y                row.x   row.y
+------  ------  --------------  --------------------------------------  ---------------------  ------  ------
+state   state                1  Nation - Total                          Alabama                     1       1
+state   state                2  Nation - Public, 4-year or above        Alaska                      2       2
+state   state                3  Alabama - Public, 4-year or above       Arizona                     3       3
+state   state                4  Alaska - Public, 4-year or above        Arkansas                    4       4
+state   state                5  Arizona - Public, 4-year or above       California                  5       5
+state   state                6  Arkansas - Public, 4-year or above      Colorado                    6       6
+state   state                7  California - Public, 4-year or above    Connecticut                 7       7
+state   state                8  Colorado - Public, 4-year or above      Delaware                    8       8
+state   state                9  Connecticut - Public, 4-year or above   District of Columbia        9       9
+state   state               10  Delaware - Public, 4-year or above      Florida                    10      10
+
+
+
+Table: (\#tab:unnamed-chunk-5)Non-identical attributes
+
+                             
+ ----------------------------
+ No non-identical attributes 
+ ----------------------------</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot1</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>Black</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>Black</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span> x <span class='op'>=</span> <span class='st'>"State"</span>, y <span class='op'>=</span> <span class='st'>"Percentage of Black Pop"</span>, title <span class='op'>=</span> <span class='st'>"States with Highest % of Black People"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot1</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot2</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>Hispanic</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>Hispanic</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot2</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot3</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>Asian</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>Asian</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot3</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot4</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>White</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>White</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot4</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot5</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`American Indian`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`American Indian`</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot5</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot1b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`American Indian or Alaskan Native undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`American Indian or Alaskan Native undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot1b</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot2b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span> <span class='va'>`Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot2b</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot3b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span> <span class='va'>`Black, non-Hispanic undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`Black, non-Hispanic undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot3b</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot4b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`Hispanic undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`Hispanic undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot4b</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot5b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`White, non-Hispanic undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`White, non-Hispanic undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot5b</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
