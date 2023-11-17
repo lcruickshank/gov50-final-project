@@ -26,6 +26,7 @@ My research question is " Does the Race Diversity of Public-Four-Year Colleges m
 
 ```{r}
 library(readr)
+library(ggplot2)
 underpop <- read_csv("underpop - Copy.csv")
 View(underpop)
 ```
@@ -39,6 +40,16 @@ View(stateperc)
 ```{r}
 colnames(underpop)[1] = "state"
 
+colnames(underpop) [3] = "American Indian"
+
+colnames(underpop) [4] = "Asian"
+
+colnames(underpop) [5] = "Black"
+
+colnames(underpop) [6] = "Hispanic"
+
+colnames(underpop) [10] = "White"
+
 colnames(stateperc)[2] = "Hispanic"
 
 colnames(stateperc)[3] = "White"
@@ -49,13 +60,72 @@ colnames(stateperc)[5] = "Asian"
 
 colnames(stateperc)[6] = "American Indian"
 
+
 ```
 
+```{r}
+
+
+ 
+```
 
 
 ```{r}
-summary(comparedf(underpop, stateperc))
+
+
+rownames(underpop)[1]="Nation all"
+rownames(underpop)[2]="Nation pub"
+rownames(underpop)[3]="Alabama"
+rownames(underpop)[4]="Alaska" 
+rownames(underpop)[5]="Arizona "
+rownames(underpop)[6]="Arkansas"
+rownames(underpop)[7]="California"
+rownames(underpop)[8]="Colorado"
+rownames(underpop)[9]="Connecticut"
+rownames(underpop)[10]="Delaware"
+rownames(underpop)[11]="District of Columbia"
+rownames(underpop)[12]="Florida"
+rownames(underpop)[13]="Georgia"
+rownames(underpop)[14]="Hawaii"  
+rownames(underpop)[15]="Idaho" 
+rownames(underpop)[16]="Illinois"
+rownames(underpop)[17]="Indiana"
+rownames(underpop)[18]="Iowa"
+rownames(underpop)[19]="Kansas"
+rownames(underpop)[20]="Kentucky"
+rownames(underpop)[21]="Louisiana"
+rownames(underpop)[22]="Massachusetts"
+rownames(underpop)[23]="Michigan"
+rownames(underpop)[24]="Minnesota"
+rownames(underpop)[25]="Mississippi" 
+rownames(underpop)[26]="Missouri"  
+rownames(underpop)[27]="Montana"
+rownames(underpop)[28]="Nebraska" 
+rownames(underpop)[29]="Nevada" 
+rownames(underpop)[30]="New Hampshire"
+rownames(underpop)[31]="New Jersey" 
+rownames(underpop)[32]="New Mexico"
+rownames(underpop)[33]="New York"
+rownames(underpop)[34]="North Carolina"
+rownames(underpop)[35]="North Dakota"
+rownames(underpop)[36]="Ohio"
+rownames(underpop)[37]="Oregon"
+rownames(underpop)[38]="Pennsylvania" 
+rownames(underpop)[39]="Rhode Island"
+rownames(underpop)[40]="South Carolina" 
+rownames(underpop)[41]="South Dakota"  
+rownames(underpop)[42]="Tennessee"
+rownames(underpop)[43]="Texas"
+rownames(underpop)[44]="Utah"
+rownames(underpop)[45]="Vermont" 
+rownames(underpop)[46]="Virginia"
+rownames(underpop)[47]="Washington"
+rownames(underpop)[48]="West Virginia"
+rownames(underpop)[49]="Wisconsin"
+rownames(underpop)[50]="Wyoming" 
+
 ```
+
 
 
 
@@ -63,90 +133,104 @@ summary(comparedf(underpop, stateperc))
 
 plot1 <- stateperc|>
   slice_max(Black, n = 5)|>
-  ggplot(mapping = aes(x = state, y = Black))+
+  ggplot(mapping = aes(x = state,y = Black))+
  geom_col()+
-  labs( x = "State", y = "Percentage of Black Pop", title = "States with Highest % of Black People")
+    coord_flip()+
+  labs( x = "State", y = "Percentage of Black Pop Uni", title = "States with Highest % of Black People")
 
 plot1
 ```
+```{r}
+plot3b <- underpop|>
+  slice_max( `Black`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `Black` ))+
+ geom_col()+
+  coord_flip()+
+   labs( x = "State", y = "Percentage of Black Pop", title = "States with Highest % of Black People")
+
+plot3b
+```
+
+From the comparison of these two graphs it is obvious that the five states with the highest Black population also do not have the highest percentage of Black students within their Public 4-year universities. This dichotomy illustrates a disparity that may be present between local populations and their access to the institutions of higher learning which is located within their states. If the other graphs also illustrate the same trend of the states with the highest populations of certain races also not being represented within the University population in the same way, there may be a disconnect that is being pointed to in regards to education and certain resources.
+
+
+
+
+
 
 ```{r}
 plot2 <- stateperc|>
   slice_max(Hispanic, n = 5)|>
   ggplot(mapping = aes(x = state, y = Hispanic))+
- geom_col()
+ geom_col()+
+    coord_flip()
 
 plot2
 ```
 ```{r}
+plot4b <- underpop|>
+  slice_max(`Hispanic`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `Hispanic` ))+
+ geom_col()+
+  coord_flip()
+plot4b
+```
+
+```{r}
 plot3 <- stateperc|>
   slice_max(Asian, n = 5)|>
   ggplot(mapping = aes(x = state, y = Asian))+
- geom_col()
+ geom_col()+
+    coord_flip()
 
 plot3
+```
+```{r}
+plot2b <- underpop|>
+  slice_max( `Asian`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `Asian` ))+
+ geom_col()+
+    coord_flip()
+
+plot2b
 ```
 
 ```{r}
 plot4 <- stateperc|>
   slice_max(White, n = 5)|>
   ggplot(mapping = aes(x = state, y = White))+
- geom_col()
+ geom_col()+
+    coord_flip()
 
 plot4
+```
+```{r}
+plot5b <- underpop|>
+  slice_max(`White`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `White` ))+
+ geom_col()+
+    coord_flip()
+
+plot5b
 ```
 
 ```{r}
 plot5 <- stateperc|>
   slice_max(`American Indian`, n = 5)|>
   ggplot(mapping = aes(x = state, y = `American Indian`))+
- geom_col()
+ geom_col()+
+    coord_flip()
 
 plot5
 ```
-
-
 ```{r}
 plot1b <- underpop|>
-  slice_max(`American Indian or Alaskan Native undergraduates - Fall (%)`, n = 5)|>
-  ggplot(mapping = aes(x = state, y = `American Indian or Alaskan Native undergraduates - Fall (%)` ))+
- geom_col()
+  slice_max(`American Indian`, n = 5)|>
+  ggplot(mapping = aes(x = state, y = `American Indian` ))+
+ geom_col()+  
+  coord_flip()
 
 plot1b
-```
-```{r}
-plot2b <- underpop|>
-  slice_max( `Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)`, n = 5)|>
-  ggplot(mapping = aes(x = state, y = `Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)` ))+
- geom_col()
-
-plot2b
-```
-
-```{r}
-plot3b <- underpop|>
-  slice_max( `Black, non-Hispanic undergraduates - Fall (%)`, n = 5)|>
-  ggplot(mapping = aes(x = state, y = `Black, non-Hispanic undergraduates - Fall (%)` ))+
- geom_col()
-
-plot3b
-```
-```{r}
-plot4b <- underpop|>
-  slice_max(`Hispanic undergraduates - Fall (%)`, n = 5)|>
-  ggplot(mapping = aes(x = state, y = `Hispanic undergraduates - Fall (%)` ))+
- geom_col()
-
-plot4b
-```
-
-```{r}
-plot5b <- underpop|>
-  slice_max(`White, non-Hispanic undergraduates - Fall (%)`, n = 5)|>
-  ggplot(mapping = aes(x = state, y = `White, non-Hispanic undergraduates - Fall (%)` ))+
- geom_col()
-
-plot5b
 ```
 
 

@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-10-1.png","index_files/figure-html5/unnamed-chunk-11-1.png","index_files/figure-html5/unnamed-chunk-12-1.png","index_files/figure-html5/unnamed-chunk-13-1.png","index_files/figure-html5/unnamed-chunk-14-1.png","index_files/figure-html5/unnamed-chunk-15-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/figure-html5/unnamed-chunk-9-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","stateperc - Sheet1 (1).csv","stateperc.csv","undergradpop.csv","underpop - Copy.csv","underpop.csv"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-10-1.png","index_files/figure-html5/unnamed-chunk-11-1.png","index_files/figure-html5/unnamed-chunk-12-1.png","index_files/figure-html5/unnamed-chunk-13-1.png","index_files/figure-html5/unnamed-chunk-14-1.png","index_files/figure-html5/unnamed-chunk-15-1.png","index_files/figure-html5/unnamed-chunk-16-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/figure-html5/unnamed-chunk-9-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","stateperc - Sheet1 (1).csv","stateperc.csv","undergradpop.csv","underpop - Copy.csv","underpop.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1532,6 +1532,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
 <span><span class='va'>underpop</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"underpop - Copy.csv"</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span></span></code></pre>
 </div>
@@ -1547,6 +1548,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"state"</span></span>
 <span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span> <span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"American Indian"</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span> <span class='op'>[</span><span class='fl'>4</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"Asian"</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span> <span class='op'>[</span><span class='fl'>5</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"Black"</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span> <span class='op'>[</span><span class='fl'>6</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span> <span class='op'>[</span><span class='fl'>10</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"White"</span></span>
+<span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>stateperc</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span></span>
 <span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>stateperc</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>=</span> <span class='st'>"White"</span></span>
@@ -1559,183 +1570,131 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://mayoverse.github.io/arsenal/reference/comparedf.html'>comparedf</a></span><span class='op'>(</span><span class='va'>underpop</span>, <span class='va'>stateperc</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+
 </div>
-<pre><code>
-
-Table: (\#tab:unnamed-chunk-5)Summary of data.frames
-
-version   arg          ncol   nrow
---------  ----------  -----  -----
-x         underpop       10     50
-y         stateperc       6     51
-
-
-
-Table: (\#tab:unnamed-chunk-5)Summary of overall comparison
-
-statistic                                                      value
-------------------------------------------------------------  ------
-Number of by-variables                                             0
-Number of non-by variables in common                               1
-Number of variables compared                                       1
-Number of variables in x but not y                                 9
-Number of variables in y but not x                                 5
-Number of variables compared with some values unequal              1
-Number of variables compared with all values equal                 0
-Number of observations in common                                  50
-Number of observations in x but not y                              0
-Number of observations in y but not x                              1
-Number of observations with some compared variables unequal       50
-Number of observations with all compared variables equal           0
-Number of values unequal                                          50
-
-
-
-Table: (\#tab:unnamed-chunk-5)Variables not shared
-
-version   variable                                                                 position  class     
---------  ----------------------------------------------------------------------  ---------  ----------
-x         Year                                                                            2  character 
-x         American Indian or Alaskan Native undergraduates - Fall (%)                     3  numeric   
-x         Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)           4  numeric   
-x         Black, non-Hispanic undergraduates - Fall (%)                                   5  numeric   
-x         Hispanic undergraduates - Fall (%)                                              6  numeric   
-x         Foreign/ international undergraduates - Fall (%)                                7  numeric   
-x         Multiracial undergraduates - Fall (%)                                           8  numeric   
-x         Race unknown undergraduates - Fall (%)                                          9  numeric   
-x         White, non-Hispanic undergraduates - Fall (%)                                  10  numeric   
-y         Hispanic                                                                        2  character 
-y         White                                                                           3  character 
-y         Black                                                                           4  character 
-y         Asian                                                                           5  character 
-y         American Indian                                                                 6  character 
-
-
-
-Table: (\#tab:unnamed-chunk-5)Other variables not compared
-
-                                 
- --------------------------------
- No other variables not compared 
- --------------------------------
-
-
-
-Table: (\#tab:unnamed-chunk-5)Observations not shared
-
-version    ..row.names..   observation
---------  --------------  ------------
-y                     51            51
-
-
-
-Table: (\#tab:unnamed-chunk-5)Differences detected by variable
-
-var.x   var.y     n   NAs
-------  ------  ---  ----
-state   state    50     0
-
-
-
-Table: (\#tab:unnamed-chunk-5)Differences detected (40 not shown)
-
-var.x   var.y    ..row.names..  values.x                                values.y                row.x   row.y
-------  ------  --------------  --------------------------------------  ---------------------  ------  ------
-state   state                1  Nation - Total                          Alabama                     1       1
-state   state                2  Nation - Public, 4-year or above        Alaska                      2       2
-state   state                3  Alabama - Public, 4-year or above       Arizona                     3       3
-state   state                4  Alaska - Public, 4-year or above        Arkansas                    4       4
-state   state                5  Arizona - Public, 4-year or above       California                  5       5
-state   state                6  Arkansas - Public, 4-year or above      Colorado                    6       6
-state   state                7  California - Public, 4-year or above    Connecticut                 7       7
-state   state                8  Colorado - Public, 4-year or above      Delaware                    8       8
-state   state                9  Connecticut - Public, 4-year or above   District of Columbia        9       9
-state   state               10  Delaware - Public, 4-year or above      Florida                    10      10
-
-
-
-Table: (\#tab:unnamed-chunk-5)Non-identical attributes
-
-                             
- ----------------------------
- No non-identical attributes 
- ----------------------------</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Nation all"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Nation pub"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Alabama"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>4</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Alaska"</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Arizona "</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>6</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Arkansas"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>7</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"California"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>8</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Colorado"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>9</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Connecticut"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>10</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Delaware"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>11</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"District of Columbia"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>12</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Florida"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>13</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Georgia"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>14</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Hawaii"</span>  </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>15</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Idaho"</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>16</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Illinois"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>17</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Indiana"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>18</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Iowa"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>19</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Kansas"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>20</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Kentucky"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>21</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Louisiana"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>22</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Massachusetts"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>23</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Michigan"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>24</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Minnesota"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>25</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Mississippi"</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>26</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Missouri"</span>  </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>27</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Montana"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>28</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Nebraska"</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>29</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Nevada"</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>30</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"New Hampshire"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>31</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"New Jersey"</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>32</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"New Mexico"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>33</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"New York"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>34</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"North Carolina"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>35</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"North Dakota"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>36</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Ohio"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>37</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Oregon"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>38</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Pennsylvania"</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>39</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Rhode Island"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>40</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"South Carolina"</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>41</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"South Dakota"</span>  </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>42</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Tennessee"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>43</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Texas"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>44</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Utah"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>45</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Vermont"</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>46</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Virginia"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>47</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Washington"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>48</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"West Virginia"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>49</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Wisconsin"</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>underpop</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>50</span><span class='op'>]</span><span class='op'>=</span><span class='st'>"Wyoming"</span> </span></code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot1</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>Black</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>Black</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>,y <span class='op'>=</span> <span class='va'>Black</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
 <span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span> x <span class='op'>=</span> <span class='st'>"State"</span>, y <span class='op'>=</span> <span class='st'>"Percentage of Black Pop"</span>, title <span class='op'>=</span> <span class='st'>"States with Highest % of Black People"</span><span class='op'>)</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span> x <span class='op'>=</span> <span class='st'>"State"</span>, y <span class='op'>=</span> <span class='st'>"Percentage of Black Pop Uni"</span>, title <span class='op'>=</span> <span class='st'>"States with Highest % of Black People"</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>plot1</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot3b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span> <span class='va'>`Black`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`Black`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span> x <span class='op'>=</span> <span class='st'>"State"</span>, y <span class='op'>=</span> <span class='st'>"Percentage of Black Pop"</span>, title <span class='op'>=</span> <span class='st'>"States with Highest % of Black People"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot3b</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<p>From the comparison of these two graphs it is obvious that the five states with the highest Black population also do not have the highest percentage of Black students within their Public 4-year universities. This dichotomy illustrates a disparity that may be present between local populations and their access to the institutions of higher learning which is located within their states. If the other graphs also illustrate the same trend of the states with the highest populations of certain races also not being represented within the University population in the same way, there may be a disconnect that is being pointed to in regards to education and certain resources.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot2</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>Hispanic</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>Hispanic</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>plot2</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot4b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`Hispanic`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`Hispanic`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span><span class='va'>plot4b</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot3</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>Asian</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>Asian</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>plot3</span></span></code></pre>
-</div>
-<p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot4</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>White</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>White</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>plot4</span></span></code></pre>
-</div>
-<p><img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot5</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`American Indian`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`American Indian`</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>plot5</span></span></code></pre>
-</div>
-<p><img src="index_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot1b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`American Indian or Alaskan Native undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`American Indian or Alaskan Native undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>plot1b</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot2b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span> <span class='va'>`Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`Asian, Native Hawaiian, or Pacific Islander undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span> <span class='va'>`Asian`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`Asian`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>plot2b</span></span></code></pre>
 </div>
@@ -1743,38 +1702,53 @@ Table: (\#tab:unnamed-chunk-5)Non-identical attributes
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot3b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span> <span class='va'>`Black, non-Hispanic undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`Black, non-Hispanic undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot4</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>White</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>White</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>plot3b</span></span></code></pre>
+<span><span class='va'>plot4</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot4b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`Hispanic undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`Hispanic undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot5b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`White`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`White`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>plot4b</span></span></code></pre>
+<span><span class='va'>plot5b</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot5b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`White, non-Hispanic undergraduates - Fall (%)`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`White, non-Hispanic undergraduates - Fall (%)`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot5</span> <span class='op'>&lt;-</span> <span class='va'>stateperc</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`American Indian`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`American Indian`</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>plot5b</span></span></code></pre>
+<span><span class='va'>plot5</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot1b</span> <span class='op'>&lt;-</span> <span class='va'>underpop</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice_max</a></span><span class='op'>(</span><span class='va'>`American Indian`</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>state</span>, y <span class='op'>=</span> <span class='va'>`American Indian`</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot1b</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
